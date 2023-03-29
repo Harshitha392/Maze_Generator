@@ -2,6 +2,8 @@ var cols,rows;
 var w=40;
 var grid = [];
 var current;
+var stack = [];
+
 function setup(){
     createCanvas(400,400);
     cols=floor(width/w);
@@ -27,11 +29,17 @@ function draw(){
     var next = current.checkNeighbors();
     if(next){
         next.visited=true;
+        //step2
+        stack.push(current);
         //step3
         removeWalls(current,next);
 
         //step4
         current=next;
+    }
+    else if(stack.length>0){
+        var cell = stack.pop();
+        current = cell;
     }
 }
 
@@ -42,7 +50,7 @@ function index(i,j){
     return i+j*cols;
 }
 
-var walls = [true,true,true,true];
+//var walls = [true,true,true,true];
 
 function Cell(i,j){
     this.i = i;
@@ -88,21 +96,21 @@ function Cell(i,j){
         var x = this.i*w;
         var y =this.j*w;
         stroke(255);
-        if(walls[0]){
+        if(this.walls[0]){
             line(x,y,x+w,y);
         }
-        if(walls[1]){
+        if(this.walls[1]){
             line(x+w,y,x+w,y+w);
         }
-        if(walls[2]){
+        if(this.walls[2]){
             line(x+w,y+w,x,y+w);
         }
-        if(walls[3]){
+        if(this.walls[3]){
             line(x,y+w,x,y);
         }
         if(this.visited){
         noStroke();
-        fill(255,0,255,255 );
+        fill(255,0,255,100);
         rect(x,y,w,w);
         }
     }
