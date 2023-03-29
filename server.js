@@ -1,13 +1,11 @@
 var cols,rows;
-var w=35;
+var w=10;
 var grid = [];
 var current;
 var stack = [];
 var fr =5;
 // w = document.getElementById("height");
 // fr = document.getElementById("frameRate");
-console.log(w);
-console.log(fr);
 function setup(){
     createCanvas(400,400);
     cols=floor(width/w);
