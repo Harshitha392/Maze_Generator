@@ -3,12 +3,13 @@ var w=40;
 var grid = [];
 var current;
 var stack = [];
-
+var fr =5;
+w = document.getElementById()
 function setup(){
     createCanvas(400,400);
     cols=floor(width/w);
     rows = floor(height/w);
-    frameRate(5);
+    frameRate(fr);
     for(var j =0;j<rows;j++){
         for(var i=0;i<cols;i++){
             var cell = new Cell(i,j);
@@ -136,3 +137,4 @@ function removeWalls(a,b){
         b.walls[0] = false;
     }
 }
+setup();
