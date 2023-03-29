@@ -1,15 +1,18 @@
 var cols,rows;
-var w=40;
+var w=35;
 var grid = [];
 var current;
 var stack = [];
 var fr =5;
-w = document.getElementById()
+// w = document.getElementById("height");
+// fr = document.getElementById("frameRate");
+console.log(w);
+console.log(fr);
 function setup(){
     createCanvas(400,400);
     cols=floor(width/w);
     rows = floor(height/w);
-    frameRate(fr);
+    //frameRate(fr);
     for(var j =0;j<rows;j++){
         for(var i=0;i<cols;i++){
             var cell = new Cell(i,j);
@@ -111,7 +114,8 @@ function Cell(i,j){
         }
         if(this.visited){
         noStroke();
-        fill(255,0,255,100);
+        //fill(255,0,255,100);
+        fill(60, 179, 113,100);
         rect(x,y,w,w);
         }
     }
